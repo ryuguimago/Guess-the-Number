@@ -7,16 +7,26 @@ def number_gen(a,b):
 
 #lets the user decide the range
 def user_input():
-    # todo: handle edge cases and error messages 
-    print("please enter the numbers for the range you want to play")
-    a = int(input("please enter the low number: "))
-    b = int(input("please enter the high number: "))
-    return a,b 
+    print("Please enter the numbers for the range you want to play.")
+    
+    while True:
+        try:
+            a = int(input("Please enter the low number: "))
+            b = int(input("Please enter the high number: "))
+            
+            # Check if the low number is less than the high number
+            if a < b:
+                return a, b
+            else:
+                print("The low number must be less than the high number. Please try again.")
+        except ValueError:
+            print("Both entries have to be whole numbers. Please try again.")
 
-#the actual guessing
+    #the actual guessing
 def guessing(a,b):
     number = number_gen(a,b)
     guess = 0
+    x = 0
     while guess != number:
         try:
             guess = int(input("what is your guess?"))
@@ -24,7 +34,8 @@ def guessing(a,b):
                 if guess < number:
                     print("you need to guess higher")
                 elif guess == number:
-                    print("Congratulations, you found the number") # todo: count tries for user experiance 
+                    print("Congratulations, you found the number")
+                    print(f"you needed {x+1} attempts" )
                     break
                 else:
                     print("you need to guess lower")
@@ -32,6 +43,7 @@ def guessing(a,b):
                 print(f"your guess has to be between {a} and {b}")
         except ValueError:
             print("your guess has to be a whole number")
+        x +=1 
 
 
 # main function
