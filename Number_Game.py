@@ -41,8 +41,9 @@ def main():
         play = input("Do you want to play?\ny/n \n").strip().lower()  # Handle case insensitivity and extra spaces
         
         if play == "y":
-            a,b = user_input()
+            
             while True:
+                a,b = user_input()
                 print(f"Guess the number between {a} and {b}")
                 guessing(a,b)
                 play = input("Do you want to play again?\ny/n \n").strip().lower()
