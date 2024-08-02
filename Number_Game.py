@@ -1,6 +1,6 @@
 #Guess the Number Game
 import random
-# generate random number between 1 and 100
+# generate random number between 1 and 20
 def number_gen():
     number = random.randint(1,20)
     return number
@@ -17,7 +17,7 @@ while guess != number:
                 print("you need to guess higher")
             elif guess == number:
                 print("Congratulations, you found the number")
-                exit()
+                break
             else:
                 print("you need to guess lower")
         else:
