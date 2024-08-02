@@ -7,6 +7,7 @@ def number_gen(a,b):
 
 #lets the user decide the range
 def user_input():
+    # todo: handle edge cases and error messages 
     print("please enter the numbers for the range you want to play")
     a = int(input("please enter the low number: "))
     b = int(input("please enter the high number: "))
@@ -23,12 +24,12 @@ def guessing(a,b):
                 if guess < number:
                     print("you need to guess higher")
                 elif guess == number:
-                    print("Congratulations, you found the number")
+                    print("Congratulations, you found the number") # todo: count tries for user experiance 
                     break
                 else:
                     print("you need to guess lower")
             else:
-                print("your guess has to be between 1 and 20")
+                print(f"your guess has to be between {a} and {b}")
         except ValueError:
             print("your guess has to be a whole number")
 
