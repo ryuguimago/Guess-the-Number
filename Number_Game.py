@@ -5,6 +5,9 @@ def number_gen():
     number = random.randint(1,20)
     return number
 
+#lets the user decide the range
+def user_input():
+    
 #the actual guessing
 def guessing():
     number = number_gen()
@@ -42,7 +45,7 @@ def main():
                     break
             break  # Exit the loop after the user decides not to play again
         elif play == "n":
-            print("Thanks for playing!")
+            print("c u next time")
             break  # Exit the loop if the user does not want to play
         else:
             print("Please enter a valid response ('y' or 'n')")
