@@ -1,6 +1,6 @@
 #Guess the Number Game
 import random
-# generate random number between 1 and 20
+# generate random number 
 def number_gen(a,b):
     number = random.randint(a,b)
     return number
@@ -26,7 +26,7 @@ def user_input():
 def guessing(a,b):
     number = number_gen(a,b)
     guess = 0
-    x = 0
+    attempts = 0    #count attempts
     while guess != number:
         try:
             guess = int(input("what is your guess?"))
@@ -35,7 +35,7 @@ def guessing(a,b):
                     print("you need to guess higher")
                 elif guess == number:
                     print("Congratulations, you found the number")
-                    print(f"you needed {x+1} attempts" )
+                    print(f"you needed {attempts+1} attempts" )
                     break
                 else:
                     print("you need to guess lower")
