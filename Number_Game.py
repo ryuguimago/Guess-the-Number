@@ -1,21 +1,25 @@
 #Guess the Number Game
 import random
 # generate random number between 1 and 20
-def number_gen():
-    number = random.randint(1,20)
+def number_gen(a,b):
+    number = random.randint(a,b)
     return number
 
 #lets the user decide the range
 def user_input():
-    
+    print("please enter the numbers for the range you want to play")
+    a = int(input("please enter the low number: "))
+    b = int(input("please enter the high number: "))
+    return a,b 
+
 #the actual guessing
-def guessing():
-    number = number_gen()
+def guessing(a,b):
+    number = number_gen(a,b)
     guess = 0
     while guess != number:
         try:
             guess = int(input("what is your guess?"))
-            if guess in range(1,21):
+            if guess in range(a,b+1):
                 if guess < number:
                     print("you need to guess higher")
                 elif guess == number:
@@ -37,9 +41,10 @@ def main():
         play = input("Do you want to play?\ny/n \n").strip().lower()  # Handle case insensitivity and extra spaces
         
         if play == "y":
+            a,b = user_input()
             while True:
-                print("Guess the number between 1 and 20")
-                guessing()
+                print(f"Guess the number between {a} and {b}")
+                guessing(a,b)
                 play = input("Do you want to play again?\ny/n \n").strip().lower()
                 if play != "y":
                     break
@@ -49,12 +54,6 @@ def main():
             break  # Exit the loop if the user does not want to play
         else:
             print("Please enter a valid response ('y' or 'n')")
-
-        
-
-    
-
-    
 
 if __name__ == "__main__":
     main()
